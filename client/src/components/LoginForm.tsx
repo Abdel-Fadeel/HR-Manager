@@ -113,8 +113,7 @@ const LoginForm: React.FC = () => {
           </LoadingButton>
           {import.meta.env.VITE_DEMO_EMAIL && (
             <Typography variant="body2" color="text.secondary" align="center">
-              Demo credentials are pre-filled. This is a read-only demo with
-              fake data.
+              Demo credentials are pre-filled. All data in this demo is fake.
             </Typography>
           )}
         </Box>
