@@ -28,8 +28,8 @@ const LoginForm: React.FC = () => {
   });
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: (import.meta.env.VITE_DEMO_EMAIL as string) || "",
+      password: (import.meta.env.VITE_DEMO_PASSWORD as string) || "",
     },
     validationSchema: loginValidationSchema,
     onSubmit: async (values, { resetForm }) => {
@@ -111,6 +111,12 @@ const LoginForm: React.FC = () => {
           >
             <span>Sign In</span>
           </LoadingButton>
+          {import.meta.env.VITE_DEMO_EMAIL && (
+            <Typography variant="body2" color="text.secondary" align="center">
+              Demo credentials are pre-filled. This is a read-only demo with
+              fake data.
+            </Typography>
+          )}
         </Box>
       </Box>
     </Container>

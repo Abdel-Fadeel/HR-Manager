@@ -14,17 +14,12 @@ export const months = [
 ];
 
 export const companies = [
-  "AL-SAILIYA TRAILERS MANAF.",
-  "DOHA MOTECO",
-  "AL-SAILIYA GARAGE",
-  "M.K COMPANY",
-  "AL-SAILIYA AGRICULTURE",
-  "AL-SAILIYA CLEANING SERVICES",
-  "MOHAMMED KAYED",
-  "KHALIFA KAYED FARM",
-  "MOHAMMED SALMEEN",
-  "KHALIFA KAYED",
-  "QATAR COMPANY",
+  "Northwind Logistics",
+  "Blue Dune Transport",
+  "Pearl Coast Garage",
+  "Green Oasis Farms",
+  "Sparkle Cleaning Services",
+  "Desert Star Trading",
 ];
 
 export const countries = [
