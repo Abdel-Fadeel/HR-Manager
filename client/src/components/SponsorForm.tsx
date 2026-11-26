@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { UseMutateAsyncFunction } from "@tanstack/react-query";
 import LoadingButton from "@mui/lab/LoadingButton";
+import { companies } from "../utils/constants";
 import {
   TextField,
   MenuItem,
@@ -22,7 +23,7 @@ export const SponsorForm: React.FC<SponsorFormProps> = ({
 }) => {
   const formik = useFormik({
     initialValues: {
-      sponsor: "AL-SAILIYA TRAILERS MANAF.",
+      sponsor: companies[0],
       groupBy: "nationality",
     },
     onSubmit: async (values) => {
@@ -73,28 +74,7 @@ export const SponsorForm: React.FC<SponsorFormProps> = ({
           helperText={formik.touched.sponsor && formik.errors.sponsor}
           className="bg-white"
         >
-          {[
-            {
-              value: "AL-SAILIYA TRAILERS MANAF.",
-              label: "AL-SAILIYA TRAILERS MANAF.",
-            },
-            { value: "DOHA MOTECO", label: "DOHA MOTECO" },
-            { value: "AL-SAILIYA GARAGE", label: "AL-SAILIYA GARAGE" },
-            { value: "M.K COMPANY", label: "M.K COMPANY" },
-            {
-              value: "AL-SAILIYA AGRICULTURE",
-              label: "AL-SAILIYA AGRICULTURE",
-            },
-            {
-              value: "AL-SAILIYA CLEANING SERVICES",
-              label: "AL-SAILIYA CLEANING SERVICES",
-            },
-            { value: "MOHAMMED KAYED", label: "MOHAMMED KAYED" },
-            { value: " KHALIFA KAYED FARM", label: " KHALIFA KAYED FARM" },
-            { value: "MOHAMMED SALMEEN", label: "MOHAMMED SALMEEN" },
-            { value: "KHALIFA KAYED", label: "KHALIFA KAYED" },
-            { value: "QATAR COMPANY", label: "QATAR COMPANY" },
-          ].map((option) => (
+          {companies.map((c) => ({ value: c, label: c })).map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>

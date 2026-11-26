@@ -19,6 +19,8 @@ import { fileURLToPath } from "url";
 // Middlewares
 import errorHandlerMiddleware from "./middlewares/errorHandlerMiddleware.js";
 import { authenticateUser } from "./middlewares/authMiddleware.js";
+import { demoReadOnly } from "./middlewares/demoMiddleware.js";
+import seedDemoData from "./utils/seedDemoData.js";
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -33,6 +35,7 @@ if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
 app.use(express.static(path.resolve(__dirname, "./client/dist")));
 app.use(express.json());
 app.use(cookieParser());
+app.use(demoReadOnly);
 
 app.use("/api/v1/auth", authRouter);
 app.use(authenticateUser);
@@ -59,7 +62,8 @@ if (!process.env.MONGO_URL) {
 
 mongoose
   .connect(process.env.MONGO_URL)
-  .then(() => {
+  .then(async () => {
+    await seedDemoData();
     app.listen(port, () => {
       console.log(`Server running on PORT ${port}...`);
     });
