@@ -12,7 +12,7 @@
     "setup-production-app": "npm i && cd client && npm i --include=dev && npm run build",
     "client": "cd client && npm run dev",
     "server": "nodemon server.js",
-    "dev": "concurrently \"npm run client\" \"npm run server\""
+    "dev": "npx concurrently \"npm run client\" \"npm run server\""
   },
   "repository": {
     "type": "git",
